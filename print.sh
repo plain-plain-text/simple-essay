@@ -41,7 +41,7 @@ else
 fi
 
 # Branch based on passed options.
-while getopts ":dp" opt; do
+while getopts ":dpt" opt; do
   case $opt in
     d)
       echo "printing $source to $target.docx " >&2
@@ -52,8 +52,13 @@ while getopts ":dp" opt; do
       echo "printing $source to $target.pdf " >&2
       pandoc -sr markdown+yaml_metadata_block "$yaml" "$source" \
         --pdf-engine=xelatex --template=essay-template.tex \
-        --pdf-engine-opt=-shell-escape \
         -o "$target".pdf
+      ;;
+    t)
+      echo "printing $source to $target.tex " >&2
+      pandoc -sr markdown+yaml_metadata_block "$yaml" "$source" \
+        --pdf-engine=xelatex --template=essay-template.tex \
+        -o "$target".tex
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
