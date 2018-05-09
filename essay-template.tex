@@ -33,12 +33,33 @@ $endif$
 \checkandfixthelayout
 
 %%% Title layout
-$if(title)$
-\title{\bigskip \bigskip $title$}
-$endif$ 
-\author{$for(author)$\Large $author.name$\\
-\normalsize\emph{$author.affiliation$}\\
-\url{$author.email$}\vspace*{0.2in} $sep$ \and $endfor$}
+$if(pdf-options.essay-header)$
+  \author{$for(author)$$author.name$$sep$ \and $endfor$}
+  \title{$title$}
+  \renewcommand{\maketitle}{%
+    % \vspace{\droptitle}
+    \par\noindent\theauthor\\
+    $if(pdf-options.essay-header.course-name)$
+      $pdf-options.essay-header.course-name$ \\
+    $endif$
+    $if(pdf-options.essay-header.instructor-name)$
+      $pdf-options.essay-header.instructor-name$ \\
+    $endif$
+    $if(pdf-options.essay-header.word-count)$
+      Word count: $pdf-options.essay-header.word-count$ words \\
+    $endif$
+    % \vspace{\baselineskip}
+    \begin{center}\thetitle\end{center}
+    \thispagestyle{title}
+   } 
+$else$
+  $if(title)$
+    \title{\bigskip \bigskip $title$}
+  $endif$ 
+  \author{$for(author)$\Large $author.name$\\
+  \normalsize\emph{$author.affiliation$}\\
+  \url{$author.email$}\vspace*{0.2in} $sep$ \and $endfor$}
+$endif$
 
 %%% Sections
 \let\oldsection\section

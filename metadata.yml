@@ -20,5 +20,5 @@ pdf-options:
   # essay-header:
   #   course-name: Arch 101
   #   instructor-name: Prof. M. Brody
-  #   word-count:
+  #   word-count: 2000
 ---
