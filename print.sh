@@ -51,7 +51,8 @@ while getopts ":dp" opt; do
     p)
       echo "printing $source to $target.pdf " >&2
       pandoc -sr markdown+yaml_metadata_block "$yaml" "$source" \
-        --pdf-engine=xelatex \
+        --pdf-engine=xelatex --template=essay-template.tex \
+        --pdf-engine-opt=-shell-escape \
         -o "$target".pdf
       ;;
     \?)

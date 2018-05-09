@@ -1,0 +1,63 @@
+% Based off https://github.com/kjhealy/pandoc-templates/blob/master/templates/xelatex.template
+\documentclass[%
+  $if(pdf-options.papersize)$
+    $pdf-options.papersize$paper,
+  $endif$
+  $pdf-options.typesize$,
+  oneside
+  ]{memoir}
+
+\usepackage{showframe}
+%%% PDF generation
+\usepackage[ breaklinks=true, hidelinks ]{hyperref}
+\hypersetup{%
+            pdftitle={$title$},
+            pdfauthor={$for(author)$$author.name$$sep$, $endfor$},
+            pdfborder={0 0 0},
+            breaklinks=true}
+
+%%% Layout of the page
+$if(pdf-options.left-margin)$
+  \setlrmarginsandblock{$pdf-options.left-margin$}$if(pdf-options.right-margin)${$pdf-options.right-margin$}$else${*}$endif${*}
+$else$
+  \setlrmarginsandblock{1in}{*}{*}
+$endif$
+$if(pdf-options.top-margin)$
+  \setulmarginsandblock{$pdf-options.top-margin$}$if(pdf-options.bottom-margin)${$pdf-options.bottom-margin$}$else${*}$endif${*}
+$else$
+  \setulmarginsandblock{1in}{*}{*}
+$endif$
+  \setheadfoot{\baselineskip}{\baselineskip} % footer is a baseline tall.
+  \setheaderspaces{*}{6pt}{*}
+
+\checkandfixthelayout
+
+%%% Title layout
+$if(title)$
+\title{\bigskip \bigskip $title$}
+$endif$ 
+\author{$for(author)$\Large $author.name$\\
+\normalsize\emph{$author.affiliation$}\\
+\url{$author.email$}\vspace*{0.2in} $sep$ \and $endfor$}
+
+%%% Sections
+\let\oldsection\section
+\renewcommand{\section}[1]{\oldsection*{#1}}
+
+\begin{document}
+
+$if(title)$
+\maketitle
+$endif$
+
+$if(epigraph)$
+\begin{epigraphs}
+$for(epigraph)$
+\qitem{$epigraph.text$}{$epigraph.source$}
+$endfor$
+\end{epigraphs}
+$endif$
+
+$body$
+
+\end{document}

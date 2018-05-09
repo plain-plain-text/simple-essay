@@ -1,5 +1,24 @@
 ---
-title: My Pandoc Essay
-author: Henry Walton Jones, Jr.
+title: My Pandoc Essay on Pantheism
+author: 
+- name: Henry Walton Jones, Jr.
+  affiliation: Marshall College
+  email: hwjones@marshall-ct.edu
 date: 2018-05-01
+epigraph:
+  - text: I should’ve mailed it to the Marx brothers!
+    source: Henry Walton Jones
+  - text: We have top men working on it right now.
+    source: Major Eaton
+pdf-options:
+  typesize: 12pt
+  papersize: letter
+  left-margin: 1in
+  right-margin: 1in
+  top-margin: 1in
+  bottom-margin: 1in
+  # essay-header:
+  #   course-name: Arch 101
+  #   instructor-name: Prof. M. Brody
+  #   word-count:
 ---
