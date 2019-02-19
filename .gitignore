@@ -1,3 +1,5 @@
+## Ignore tmp directory
+tmp
 ## Ignore doc files
 *.doc
 *.docx

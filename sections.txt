@@ -1,0 +1,9 @@
+# This is a list of markdown files located in the sections/ folder
+#
+# The order in which they are presented here is the order in which
+# they are processed for the final pdf.
+#
+# Please note that you should skip the “.md” extension.
+intro
+section-one
+a-long-story
