@@ -37,7 +37,9 @@ file.
 your bibliography.
 * `bibliography.bib`: a
 [BibLaTeX](https://ctan.org/pkg/biblatex?lang=en)-formatted database of all of
-the sources you will be citing. See below.
+the sources you will be citing. It is an exported version of [this Zotero
+collection](https://www.zotero.org/moacir/items/collectionKey/7G84VPGE). For
+more, see below.
 * `metadata.yml`: a [YAML](https://learnxinyminutes.com/docs/yaml/) file
 containing the metadata (author, title, margins) regarding the essay. See
 below.
@@ -184,6 +186,6 @@ and then set the `csl` key in `metadata.yml` to point to the file.
 [Turabian
 8th](https://en.wikipedia.org/wiki/A_Manual_for_Writers_of_Research_Papers,_Theses,_and_Dissertations):
 
-* [turabian-fullnote-bibliography.csl](https://github.com/citation-style-language/styles/blob/master/turabian-fullnote-bibliography.csl)
+* [`turabian-fullnote-bibliography.csl`](https://github.com/citation-style-language/styles/blob/master/turabian-fullnote-bibliography.csl)
 
 
