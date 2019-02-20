@@ -32,7 +32,7 @@ Please have installed, for maximal compatibility with this README:
 
 ## Understand the Repo
 
-* 📁 `sections`: a folder containing a bunch of Markdown files that make up
+* 📁 `sections/`: a folder containing a bunch of Markdown files that make up
 the content of your essay.
     * `a-long-story.md`: a Markdown file
     * `intro.md`: a Markdown file
