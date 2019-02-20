@@ -15,6 +15,7 @@ Please have installed, for maximal compatibility with this README:
 * [Pandoc](http://pandoc.org), for converting Markdown to Word and TeX.
 * A TeX distribution, such as [MiKTeX](http://miktex.org) for Windows or [MacTeX](https://www.tug.org/mactex/) for MacOS, for typesetting your document.
 * [Zotero](http://zotero.org), for managing citations.
+* [Better BibTeX](https://retorque.re/zotero-better-bibtex/), a plugin that improves Zotero .
 
 ## Getting Started
 
@@ -65,23 +66,24 @@ Markdown are the introduction of footnotes and citations.
 
 ### Footnotes
 
-The footnote syntax is made up of two parts: the footnote marker and the
-footnote content. The footnote marker is of the format `[^key]`, where `key`
-is the unique id associated with the footnote. `key` can be a descriptive
-term, like `[^footnote-about-cats]` or just a number, like `[^1]`. Regardless
-of the key, the footnote will be numbered in the order in which is appears in
-the document. Citations may even intercede between your footnotes.
-
-The footnote content appears somewhere else in the document, either at the
-bottom of the paragraph, at the bottom of the document, in a separate document
-in `sections/`… wherever. But it has to take the format of:
+Footnotes are written inline with the text itself. This is similar to the way
+applications like Scrivener treat footnotes. In other words, you write them
+like this:
 
 ```markdown
-[^key]: This is the foonote content. I can talk about my favorite things here.
+It was important to remember that, during this battle, the sides were hardly
+evenly matched.^[In fact, contemporary sources posit that one side had nearly
+ten times as many soldiers.] Nevertheless, the battle started precisely at
+noon.
 ```
 
-In other words, it’s the footnote marker, on a new line, followed
-*immediately* by a `:`, then by a space, and then by the content.
+Note the syntax: a `^`, followed by the contents of the footnote enclosed in
+`[]`.
+
+If your footnotes need to grow to multiple paragraphs, please see the Pandoc
+documentation for “[regular
+footnotes](https://pandoc.org/MANUAL.html#footnotes)” (those described above
+are “inline footnotes”).
 
 ### Citations
 
@@ -99,17 +101,35 @@ Citing a work in the `.bib` file is done using the citation key. In Markdown,
 the typical format to do so is:
 
 ```markdown
-As blah remarks in blah [@barnes_nightwood_1995]
+The narrator refers to Guideo Volkbein as “both a gourmet and a dandy, never
+appearing in public without the ribbon of some quite unknown distinction
+tinging his buttonhole with a faint thread”[@barnes_nightwood_1995 3].
 ```
 
-Long citation keys can be cumbersome and can be difficult to remember. The
+The citation syntax is rather flexible and forgiving. The Pandoc documentation
+provides [a few other examples](https://pandoc.org/MANUAL.html#citations):
+
+```markdown
+Blah blah [see @doe99, pp. 33–35; also @smith04, chap. 1].
+
+Blah blah [@doe99, pp. 33-35, 38-39 and *passim*].
+
+Blah blah [@smith04; @doe99].
+```
+
+Long citation keys can be cumbersome and can be difficult to remember.
+Installing the [Better BibTeX](https://retorque.re/zotero-better-bibtex/)
+plugin for Zotero will let you define citation keys from within Zotero itself
+by adding a line `bibtex: citation-key` in the “Extras” field in Zotero. That
+is how, in the default `bibliography.bib`, the standard edition of _Nightwood_
+has a citation key of simply `nightwood`, not `barnes_nightwood_1936`.
+
+Finally, often users will have one, giant .bib file that represents every
+citation they have saved. If this is the case for you, then, obviously, the
+`bibliography` key needs to be changed in `metadata.yml` to point to that
+file. However, in that case, you can also benefit from using the
 [autocomplete-bibtex](https://atom.io/packages/autocomplete-bibtex) plugin for
-Atom will suggest citations for you. Similarly, installing the [Better
-BibTeX](https://retorque.re/zotero-better-bibtex/) plugin for Zotero will let
-you define citation keys from within Zotero itself by adding a line `bibtex:
-citation-key` in the “Extras” field in Zotero. That is how, in the default
-`bibliography.bib`, the standard edition of _Nightwood_ has a citation key of
-simply `nightwood`, not `barnes_nightwood_1936`.
+Atom that will auto-suggest citations for you.
 
 ## Metadata.yml
 
