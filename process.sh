@@ -26,15 +26,16 @@ else
   exit 1
 fi
 
-# 5. Hack .bib to get it to respect mkbibquote and mkbibemph
+# 4. Hack .bib to get it to respect mkbibquote and mkbibemph
 sed -i.bak 's/\$\\backslash\$/\\/' bibliography.bib
 sed -i.bak 's/\\{\\vphantom\\}/{/' bibliography.bib
 sed -i.bak 's/\\vphantom\\{\\}/}/' bibliography.bib
 
-# 6. Clean up backups
+# 5. Clean up backups
 rm bibliography.bib.bak
 
-# 7. Invoke pandoc
+# 6. Invoke pandoc
+echo "Generating .doc and .pdf files."
 pandoc -sr markdown+yaml_metadata_block+citations \
   --pdf-engine=xelatex --template=template.tex \
   --filter pandoc-citeproc \
@@ -49,3 +50,4 @@ pandoc -sr markdown+yaml_metadata_block+citations \
   --filter pandoc-citeproc \
   ./metadata.yml ./tmp/main.md bibliography-preamble.tex \
   -o output.pdf
+echo "Files generated."
