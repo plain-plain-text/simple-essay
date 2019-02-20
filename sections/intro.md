@@ -1,6 +1,6 @@
 This is the introduction of the essay.[^footnote-to-intro] In this essay, in
 the voice of Indiana Jones, I will attempt to say smart things about Djuna
-Barnes’s 1936 novel _Nightwood_. I’ve chosen that novel just because it’s
+Barnes’s 1936 novel _Nightwood_[@nightwood]. I’ve chosen that novel just because it’s
 what’s on my mind at the moment that I am writing this boilerplate text and
 have not yet decided to move ahead to the lorem ipsum text.
 

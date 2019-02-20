@@ -1,16 +1,26 @@
 ---
-title: My Pandoc Essay on Pantheism
+# General information
+title: "My Pandoc Essay on Pantheism"
 author: 
 - name: Henry Walton Jones, Jr.
   affiliation: Marshall College
   email: hwjones@marshall-ct.edu
-date: 2018-05-01
+# Bibliographic information:
+# See https://github.com/jgm/pandoc-citeproc/blob/master/man/pandoc-citeproc.1.md for details
+bibliography: bibliography.bib
+notes-after-punctuation: true
+# csl: chicago-fullnote-bibliography.csl
+link-citations: true
+nocite: "@*"
+# Epigraph(s)
 epigraph:
   - text: I should’ve mailed it to the Marx brothers!
     source: Henry Walton Jones
   - text: We have top men working on it right now.
     source: Major Eaton
+# Print options for the pdf.
 pdf-options:
+  double-spacing: true
   typesize: 12pt
   papersize: letter
   left-margin: 1in

@@ -26,9 +26,26 @@ else
   exit 1
 fi
 
-# 3. Invoke pandoc
+# 5. Hack .bib to get it to respect mkbibquote and mkbibemph
+sed -i.bak 's/\$\\backslash\$/\\/' bibliography.bib
+sed -i.bak 's/\\{\\vphantom\\}/{/' bibliography.bib
+sed -i.bak 's/\\vphantom\\{\\}/}/' bibliography.bib
+
+# 6. Clean up backups
+rm bibliography.bib.bak
+
+# 7. Invoke pandoc
 pandoc -sr markdown+yaml_metadata_block+citations \
   --pdf-engine=xelatex --template=template.tex \
   --filter pandoc-citeproc \
+  ./metadata.yml ./tmp/main.md bibliography-preamble.tex \
+  -o tmp/output.tex
+pandoc -sr markdown+yaml_metadata_block+citations \
+  --filter pandoc-citeproc \
   ./metadata.yml ./tmp/main.md \
+  -o output.docx
+pandoc -sr markdown+yaml_metadata_block+citations \
+  --pdf-engine=xelatex --template=template.tex \
+  --filter pandoc-citeproc \
+  ./metadata.yml ./tmp/main.md bibliography-preamble.tex \
   -o output.pdf

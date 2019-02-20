@@ -2,12 +2,12 @@
 \documentclass[%
   $if(pdf-options.papersize)$
     $pdf-options.papersize$paper,
-  $endif$
+  $endif$,
+  article,
   $pdf-options.typesize$,
   oneside
   ]{memoir}
 
-\usepackage{showframe}
 %%% PDF generation
 \usepackage[ breaklinks=true, hidelinks ]{hyperref}
 \hypersetup{%
@@ -62,6 +62,7 @@ $else$
 $endif$
 
 %%% Sections
+% This removes numbering from sections by redefining \section to mimic \section*
 \let\oldsection\section
 \renewcommand{\section}[1]{\oldsection*{#1}}
 
@@ -77,6 +78,10 @@ $for(epigraph)$
 \qitem{$epigraph.text$}{$epigraph.source$}
 $endfor$
 \end{epigraphs}
+$endif$
+
+$if(pdf-options.double-spacing)$
+\DoubleSpacing
 $endif$
 
 $body$
