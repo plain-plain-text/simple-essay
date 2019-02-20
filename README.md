@@ -1,6 +1,6 @@
 # simple-essay
 
-![Screenshot of title of pdf](https://i.imgur.com/1s1dDV8.png)
+![Screenshot of title of pdf](https://i.imgur.com/2KtAfeq.png)
 
 This repository provides a bare minimum of files to generate a tidy academic
 paper with markdown that, nevertheless, is published as both a Microsoft Word
@@ -168,6 +168,14 @@ epigraph should have two keys:
     * `source`: The source of the epigraph
 `pdf-options`: This is a list of options for generating the pdf. They should
 be somewhat self-explanatory.
+    * `font`: This key, however, is a bit tricky, and it is commented out by
+    default, because it is hard to predict what fonts are on someone’s
+    computer. If you download and install [EB
+    Garamond](http://www.georgduffner.at/ebgaramond/index.html), then you can
+    uncomment the line as it is and have the pdf output typeset in EB
+    Garamond.
+    * `font-settings`: This is a subgroup of font settings that may not apply
+    to all fonts.
 
 ## Citation Style Language Files
 

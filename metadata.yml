@@ -20,6 +20,17 @@ epigraph:
     source: Major Eaton
 # Print options for the pdf.
 pdf-options:
+# The font settings are commented out by default.
+# For more information on the OpenType features available for declaration
+# as "font-settings" here and rendered by template.tex,
+# please see part IV of the Fontspec documentation, available here:
+#
+# http://mirrors.ctan.org/macros/latex/contrib/fontspec/fontspec.pdf
+  # font: EB Garamond
+  # font-settings:
+  #   historic-ligatures: true
+  #   rare-ligatures: true
+  #   swash-italics: true
   double-spacing: true
   typesize: 12pt
   papersize: letter

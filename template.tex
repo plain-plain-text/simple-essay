@@ -8,6 +8,36 @@
   oneside
   ]{memoir}
 
+%%% Font selection
+$if(pdf-options.font)$
+\usepackage{fontspec} % Choose fonts intelligently
+%%% Fontspec looks for the font set in metadata.yml
+%%%
+%%% Included below are some advanced OpenType features that work well with
+%%% EB Garamond. You can download EB Garamond here:
+%%%
+%%% http://www.georgduffner.at/ebgaramond/download.html
+%%%
+%%% For more information on the OpenType features available for declaration,
+%%% please see part IV of the Fontspec documentation, available here:
+%%%
+%%% http://mirrors.ctan.org/macros/latex/contrib/fontspec/fontspec.pdf
+\setmainfont{$pdf-options.font$}[%
+  %%% These features may not work with all fonts.
+  $if(pdf-options.font-settings.historic-ligatures)$
+    Ligatures=Historic ,
+  $endif$
+  $if(pdf-options.font-settings.rare-ligatures)$
+  Ligatures=Rare ,
+  $endif$
+  $if(pdf-options.font-settings.swash-italics)$
+  ItalicFeatures={Style=Swash},
+  $endif$
+  Mapping=tex-text
+]
+$endif$
+
+
 %%% PDF generation
 \usepackage[ breaklinks=true, hidelinks ]{hyperref}
 \hypersetup{%
