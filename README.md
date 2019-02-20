@@ -1,8 +1,14 @@
 # simple-essay
 
+![Screenshot of title of pdf](https://i.imgur.com/1s1dDV8.png)
+
 This repository provides a bare minimum of files to generate a tidy academic
 paper with markdown that, nevertheless, is published as both a Microsoft Word
-`.docx` and as a `.pdf`. The conversion is done by the universal document
+`.docx` and as a `.pdf` (see
+[output.docx](https://github.com/plain-plain-text/simple-essay/blob/master/output.docx)
+and
+[output.pdf](https://github.com/plain-plain-text/simple-essay/blob/master/output.pdf)
+respectively). The conversion is done by the universal document
 converter, [Pandoc](http://pandoc.org), and the typesetting for the `.pdf` is
 done with TeX.
 
