@@ -64,7 +64,7 @@ $pandoc_tex_args = @(
     "--standalone",
     "--from=markdown+yaml_metadata_block+raw_tex+citations",
     "--template=template.tex",
-    "--filter=pandoc-citeproc",
+    "--citeproc",
     "--metadata-file=metadata.yml",
     "--output=tmp\out.tex",
     ".\tmp\main.md"
@@ -72,7 +72,7 @@ $pandoc_tex_args = @(
 $pandoc_doc_args = @(
     "--standalone",
     "--from=markdown+yaml_metadata_block+citations",
-    "--filter=pandoc-citeproc",
+    "--citeproc",
     "--metadata-file=metadata.yml",
     "--output=output.docx",
     ".\tmp\main.md"
@@ -80,7 +80,7 @@ $pandoc_doc_args = @(
 $pandoc_pdf_args = @(
     "--standalone",
     "--from=markdown+yaml_metadata_block+citations",
-    "--filter=pandoc-citeproc",
+    "--citeproc",
     "--template=template.tex",
     "--pdf-engine=xelatex",
     "--metadata-file=metadata.yml",
