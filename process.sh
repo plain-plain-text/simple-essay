@@ -38,16 +38,16 @@ rm bibliography.bib.bak
 echo "Generating .doc and .pdf files."
 pandoc -sr markdown+yaml_metadata_block+citations \
   --pdf-engine=xelatex --template=template.tex \
-  --filter pandoc-citeproc \
+  --citeproc \
   ./metadata.yml ./tmp/main.md bibliography-preamble.tex \
   -o tmp/output.tex
 pandoc -sr markdown+yaml_metadata_block+citations \
-  --filter pandoc-citeproc \
+  --citeproc \
   ./metadata.yml ./tmp/main.md \
   -o output.docx
 pandoc -sr markdown+yaml_metadata_block+citations \
   --pdf-engine=xelatex --template=template.tex \
-  --filter pandoc-citeproc \
+  --citeproc \
   ./metadata.yml ./tmp/main.md bibliography-preamble.tex \
   -o output.pdf
 echo "Files generated."
